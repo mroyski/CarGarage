@@ -6,6 +6,11 @@ namespace CarGarage.Tests
 {
     public class GarageTests
     {
+        List<Car> CarGarage = new List<Car>();
+        Car car = new Car();
+        Car truck = new Car();
+
+
         [Fact]
         public void shouldAddCarToGarage()
         {
@@ -24,8 +29,13 @@ namespace CarGarage.Tests
         {
             // Tests RemoveCar() method
             // Arrange
+            Car car = new Car();
             // Act
+            List<Car> CarGarage = new List<Car>();
+            CarGarage.Add(car);
+            CarGarage.Remove(car);
             // Assert
+            Assert.Empty(CarGarage);
         }
 
         [Fact]
@@ -33,8 +43,14 @@ namespace CarGarage.Tests
         {
             // Tests FuelAllCars() method
             // Arrange
+            CarGarage.Add(car);
+            CarGarage.Add(truck);
             // Act
+            shouldFuelAllCars();
             // Assert
+            Assert.Equal(25, car.Fuel);
+            Assert.Equal(25, truck.Fuel);
+
         }
 
         [Fact]
