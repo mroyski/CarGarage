@@ -14,35 +14,13 @@ namespace CarGarage
             GarageCars = new List<Car>();
         }
 
-        public void CarPick()
-        {
-            //Console.WriteLine("Choose your ride!");
-            //Console.WriteLine("Type the number and press ENTER");
-            //Car currentCar;
-            //string carChoice = Console.ReadLine();
-
-            //if (carChoice == "1")
-            //{
-            //    currentCar = GarageCars[0];
-            //}
-            //else if (carChoice == "2")
-            //{
-            //    currentCar = GarageCars[1];
-            //}
-            //else if (carChoice == "3")
-            //{
-            //    currentCar = GarageCars[2];
-            //}
-            //else currentCar = GarageCars[0];
-
-        }
-
         public void TestDrive()
         {
+            Console.Clear();
             bool Driving = true;
             do
             {
-                Console.WriteLine("1 Accelerate\n2 Brake\n3 Refuel\n4Turn On/Off\n5 Switch Car");
+                Console.WriteLine("1 Accelerate\n2 Brake\n3 Refuel\n4 Turn On/Off\n5 Switch Car");
                 string testDriveChoice = Console.ReadLine();
                 switch (testDriveChoice)
                 {
@@ -59,7 +37,8 @@ namespace CarGarage
                         CurrentCar.ToggleEngine();
                         break;
                     case "5":
-                        TestDrive();
+                        Console.Clear();
+                        ListAllCars();
                         Driving = false;
                         break;
                     default:
@@ -71,22 +50,16 @@ namespace CarGarage
 
         public void ListAllCars()
         {
-            //Console.Clear();
-            //GarageScreen();
-            //foreach (var Car in GarageCars)
-            //{
-            //    Console.WriteLine("{0} {1}\nStatus : {2}\nFuel : {3}\nSpeed : {4}\n", Car.Make, Car.Model, Car.Status, Car.Fuel, Car.Speed);
-            //}
-
             for (int i = 0; i < GarageCars.Count; i++)
             {
-                Console.WriteLine("{0} {1} {2} {3} ", i, 
+                Console.WriteLine("{0}\n{1} {2}\nFuel : {3}\nStatus : {4}\n", i, 
                     GarageCars[i].Make,
                     GarageCars[i].Model,
+                    GarageCars[i].Fuel,
                     GarageCars[i].Status);
-
             }
         }
+
         public Car Select_Car(int index)
         {
             return GarageCars[index];
