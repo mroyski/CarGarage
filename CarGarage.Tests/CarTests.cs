@@ -1,16 +1,21 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CarGarage.Tests
 {
     public class CarTests
     {
+        Garage carGarage = new Garage();
+        List<Car> CarGarage = new List<Car>();
+        Car car = new Car("Toyota", "Corolla", "Car is off", 0, 90);
+        Car truck = new Car("Ford", "Ranger", "Car is off", 0, 90);
         [Fact]
         public void shouldAccelerate()
         {
             // Tests Accelerate() method in Car increases Speed
             // Arrange
-            Car car = new Car();
+            var car = new Car();
             // Act
             car.Accelerate();
             // Assert
@@ -22,11 +27,10 @@ namespace CarGarage.Tests
         {
             // Tests Accelerate() method reduces Fuel amount
             // Arrange
-            Car car = new Car();
             // Act
             car.Accelerate();
             // Assert
-            Assert.Equal(19, car.Fuel);
+            Assert.Equal(85, car.Fuel);
         }
 
         [Fact]
@@ -34,12 +38,12 @@ namespace CarGarage.Tests
         {
             // Tests AddFuel() method increases Fuel amount
             // Arrange
-            Car car = new Car();
+            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
             car.Accelerate();
             // Act
             car.AddFuel();
             // Assert
-            Assert.Equal(20, car.Fuel);
+            Assert.Equal(100, car.Fuel);
         }
 
         [Fact]
@@ -47,7 +51,7 @@ namespace CarGarage.Tests
         {
             // Tests Brake() method in Car reduces Speed amount
             // Arrange
-            Car car = new Car();
+            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
             // Act
             car.Accelerate();
             car.Accelerate();
@@ -61,7 +65,7 @@ namespace CarGarage.Tests
         {
             // Tests ToggleEngine() method starts car when its off
             // Arrange
-            Car car = new Car();
+            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
             // Act
             car.ToggleEngine();
             // Assert
@@ -73,7 +77,7 @@ namespace CarGarage.Tests
         {
             // Tests ToggleEngine() method turns car off when its on
             // Arrange
-            Car car = new Car();
+            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
             // Act
             car.ToggleEngine();
             car.ToggleEngine();
