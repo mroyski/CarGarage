@@ -9,17 +9,21 @@ namespace CarGarage
         {
             Garage garage = new Garage();
             garage.TitleScreen();
-
+            garage.AddCar("Lamborghini", "Centenario", "Car is off", 0, 100);
             garage.AddCar("Chevrolet", "Corvette", "Car is off", 0, 100);
             garage.AddCar("Toyota", "Corolla", "Car is off", 0, 100);
-            garage.AddCar("Lamborghini", "Centenario", "Car is off", 0, 100);
-
             garage.ListAllCars();
 
+            Console.WriteLine("Type Id to select Car");
+            int index = Convert.ToInt32(Console.ReadLine());
+            garage.Select_Car(index);
 
-            //garage.GarageCars[0].Accelerate();
-            //Console.WriteLine(garage.GarageCars[0].Fuel);
+            garage.CarPick();
+            garage.TestDrive();
+            
             Console.ReadKey();
         }
+
+        
     }
 }
