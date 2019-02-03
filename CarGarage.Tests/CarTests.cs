@@ -8,8 +8,8 @@ namespace CarGarage.Tests
     {
         Garage carGarage = new Garage();
         List<Car> CarGarage = new List<Car>();
-        Car car = new Car("Toyota", "Corolla", "Car is off", 0, 90);
-        Car truck = new Car("Ford", "Ranger", "Car is off", 0, 90);
+        Car car = new Car("Toyota", "Corolla", 0, 90);
+        Car truck = new Car("Ford", "Ranger", 0, 90);
         [Fact]
         public void shouldAccelerate()
         {
@@ -38,7 +38,7 @@ namespace CarGarage.Tests
         {
             // Tests AddFuel() method increases Fuel amount
             // Arrange
-            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car = new Car("Toyota", "Corolla", 0, 20);
             car.Accelerate();
             // Act
             car.AddFuel();
@@ -51,7 +51,7 @@ namespace CarGarage.Tests
         {
             // Tests Brake() method in Car reduces Speed amount
             // Arrange
-            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car = new Car("Toyota", "Corolla", 0, 20);
             // Act
             car.Accelerate();
             car.Accelerate();
@@ -65,7 +65,7 @@ namespace CarGarage.Tests
         {
             // Tests ToggleEngine() method starts car when its off
             // Arrange
-            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car = new Car("Toyota", "Corolla", 0, 20);
             // Act
             car.ToggleEngine();
             // Assert
@@ -77,7 +77,7 @@ namespace CarGarage.Tests
         {
             // Tests ToggleEngine() method turns car off when its on
             // Arrange
-            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car = new Car("Toyota", "Corolla", 0, 20);
             // Act
             car.ToggleEngine();
             car.ToggleEngine();

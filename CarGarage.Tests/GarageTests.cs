@@ -8,15 +8,15 @@ namespace CarGarage.Tests
     {
         Garage garage = new Garage();
         //List<Car> CarGarage = new List<Car>();
-        Car car = new Car("Toyota", "Corolla", "Car is off", 0, 90);
-        Car truck = new Car("Ford", "Ranger", "Car is off", 0, 90);
+        Car car = new Car("Toyota", "Corolla", 0, 90);
+        Car truck = new Car("Ford", "Ranger", 0, 90);
 
         [Fact]
         public void shouldAddCarToGarage()
         {
             // Tests AddCar() method
             // Arrange
-            Car car1 = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car1 = new Car("Toyota", "Corolla", 0, 20);
             // Act
             List<Car> CarGarage = new List<Car>();
             CarGarage.Add(car);
@@ -31,7 +31,7 @@ namespace CarGarage.Tests
             // Arrange
             List<Car> CarGarage = new List<Car>();
 
-            Car car = new Car("Toyota", "Corolla", "Car is off", 0, 20);
+            Car car = new Car("Toyota", "Corolla", 0, 20);
             // Act
             CarGarage.Add(car);
             CarGarage.Remove(car);

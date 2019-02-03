@@ -13,32 +13,41 @@ namespace CarGarage
         public int Fuel { get; set; }
 
         // Constructor
-        public Car() { }
-        public Car(string make, string model, string status, int speed, int fuel)
+        public Car()
         {
+            Running = false;
+            Speed = 0;
+            Fuel = 100;
+        }
+        public Car(string make, string model, int speed, int fuel)
+        {
+            Running = false;
             Make = make;
             Model = model;
-            Status = "Car is off";
             Speed = speed;
             Fuel = fuel;
         }
 
+        public bool Running { get; set; }
         public void ToggleEngine()
         {
-            if (Status == "Car is off")
+            Speed = 0;
+            if (Running == true)
             {
-                Status = "Car is running";
+                Running = false;
+                Console.WriteLine("Car is off");
             }
             else
             {
-                Status = "Car is off";
+                Running = true;
+                Console.WriteLine("Car is running");
             }
         }
-            
+
         public void Accelerate()
         {
             Speed += 10;
-            Fuel -=5;
+            Fuel -= 10;
         }
 
         public void Brake()
