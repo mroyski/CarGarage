@@ -14,49 +14,49 @@ namespace CarGarage
             GarageCars = new List<Car>();
         }
 
-        public void TestDrive()
-        {
-            Console.Clear();
-            bool Driving = true;
-            do
-            {
-                Console.WriteLine("1 Accelerate\n2 Brake\n3 Refuel\n4 Turn On/Off\n5 Switch Car");
-                string testDriveChoice = Console.ReadLine();
-                switch (testDriveChoice)
-                {
-                    case "1":
-                        CurrentCar.Accelerate();
-                        break;
-                    case "2":
-                        CurrentCar.Brake();
-                        break;
-                    case "3":
-                        CurrentCar.AddFuel();
-                        break;
-                    case "4":
-                        CurrentCar.ToggleEngine();
-                        break;
-                    case "5":
-                        Console.Clear();
-                        ListAllCars();
-                        Driving = false;
-                        break;
-                    default:
-                        TestDrive();
-                        break;
-                }
-            } while (Driving == true);
-        }
+        //public void TestDrive(int index)
+        //{
+        //    Console.Clear();
+        //    Select_Car(index);
+            //    bool Driving = true;
+            //    do
+            //    {
+            //        Console.WriteLine("1 Accelerate\n2 Brake\n3 Refuel\n4 Turn On/Off\n5 Switch Car");
+            //        string testDriveChoice = Console.ReadLine();
+            //        switch (testDriveChoice)
+            //        {
+            //            case "1":
+            //                .Accelerate();
+            //                break;
+            //            case "2":
+            //                CurrentCar.Brake();
+            //                break;
+            //            case "3":
+            //                CurrentCar.AddFuel();
+            //                break;
+            //            case "4":
+            //                CurrentCar.ToggleEngine();
+            //                break;
+            //            case "5":
+            //                Console.Clear();
+            //                ListAllCars();
+            //                Driving = false;
+            //                break;
+            //            default:
+            //                TestDrive();
+            //                break;
+            //        }
+            //    } while (Driving == true);
+        //}
 
         public void ListAllCars()
         {
             for (int i = 0; i < GarageCars.Count; i++)
             {
-                Console.WriteLine("{0}\n{1} {2}\nFuel : {3}\nStatus : {4}\n", i, 
+                Console.WriteLine("{0}\n{1} {2}\nFuel : {3}\n", i, 
                     GarageCars[i].Make,
                     GarageCars[i].Model,
-                    GarageCars[i].Fuel,
-                    GarageCars[i].Status);
+                    GarageCars[i].Fuel);
             }
         }
 
@@ -67,16 +67,22 @@ namespace CarGarage
 
         public void FuelAllCars()
         {
-            foreach(var Car in GarageCars)
+            for (int i = 0; i < GarageCars.Count; i++)
             {
-                Car.Fuel = 100;
+                GarageCars[i].AddFuel();
             }
+        
         }
 
         public void AddCar(string make, string model, string status, int speed, int fuel)
         {
             
             GarageCars.Add(new Car(make,model,status,speed,fuel));
+        }
+
+        public void RemoveCar(int index)
+        {
+            GarageCars.RemoveAt(index);
         }
 
         public void TitleScreen()
