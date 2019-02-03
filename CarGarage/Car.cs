@@ -8,7 +8,6 @@ namespace CarGarage
     {
         public string Make { get; set; }
         public string Model { get; set; }
-        public string Status { get; set; }
         public int Speed { get; set; }
         public int Fuel { get; set; }
 
@@ -19,6 +18,7 @@ namespace CarGarage
             Speed = 0;
             Fuel = 100;
         }
+
         public Car(string make, string model, int speed, int fuel)
         {
             Running = false;

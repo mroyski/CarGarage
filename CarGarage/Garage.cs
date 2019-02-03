@@ -12,6 +12,9 @@ namespace CarGarage
         public Garage()
         {
             GarageCars = new List<Car>();
+            AddCar("Lamborghini", "Centenario", "Car is off", 0, 100);
+            AddCar("Chevrolet", "Corvette", "Car is off", 0, 100);
+            AddCar("Toyota", "Corolla", "Car is off", 0, 100);
         }
 
         public void ListAllCars()
@@ -38,19 +41,27 @@ namespace CarGarage
             }
         }
 
-        public void AddCar(string make, string model, string status, int speed, int fuel)
+        public void AddNewCar(string make, string model, int speed, int fuel)
         {
-            Console.WriteLine("What is the make?");
-            make = Console.ReadLine();
-            Console.WriteLine("What is the model?");
-            model = Console.ReadLine();
-            GarageCars.Add(new Car(make, model, speed, fuel));
-
+            Console.WriteLine("Make?");
+            string carMake = Console.ReadLine();
+            Console.WriteLine("Model?");
+            string carModel = Console.ReadLine();
+            GarageCars.Add(new Car(carMake, carModel, 0, 100));
         }
 
-        public void RemoveCar(int index)
+        public void AddCar(string make, string model, string status, int speed, int fuel)
         {
-            GarageCars.RemoveAt(index);
+            GarageCars.Add(new Car(make, model, speed, fuel));
+        }
+
+        public void RemoveCar()
+        {
+            ListAllCars();
+            Console.WriteLine("Select the car you wish to remove.");
+            string removalcar = Convert.ToString(Console.ReadLine());
+            int remove = Convert.ToInt32(removalcar);
+            GarageCars.RemoveAt(remove);
         }
 
         public void TitleScreen()

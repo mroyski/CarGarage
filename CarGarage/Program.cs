@@ -9,16 +9,13 @@ namespace CarGarage
         {
             Garage garage = new Garage();
             garage.TitleScreen();
-            garage.AddCar("Lamborghini", "Centenario", "Car is off", 0, 100);
-            garage.AddCar("Chevrolet", "Corvette", "Car is off", 0, 100);
-            garage.AddCar("Toyota", "Corolla", "Car is off", 0, 100);
 
             bool flag = true;
             while (flag)
             {
                 Console.Clear();
                 garage.GarageScreen();
-                Console.WriteLine("1.Choose a car to drive\n2.Refuel all cars\n3.Add a car\n4.Remove a car");
+                Console.WriteLine("1.Choose a car to drive\n2.Refuel all cars\n3.Add a car\n4.Remove a car\n5.List all cars\n0.Exit");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -34,7 +31,14 @@ namespace CarGarage
                         Console.ReadKey();
                         break;
                     case "3":
-                        garage.AddCar(Console.ReadLine(), Console.ReadLine(), "Car is off", 0, 100);
+                        garage.AddNewCar("{0}", "{1}", 0, 100);
+                        break;
+                    case "4":
+                        garage.RemoveCar();
+                        break;
+                    case "5":
+                        garage.ListAllCars();
+                        Console.ReadKey();
                         break;
                     case "0":
                         flag = false;
@@ -54,7 +58,7 @@ namespace CarGarage
             {
                 Console.Clear();
                 TestDriveScreen();
-                Console.WriteLine("1.Toggle engine\n2.Accelerate\n3.Brake\n4.Fill gas tank\n5.Car info");
+                Console.WriteLine("1.Toggle engine\n2.Accelerate\n3.Brake\n4.Fill gas tank\n5.Car info\n0.Return to garage");
                 string input = Console.ReadLine();
                 switch (input)
                 {
