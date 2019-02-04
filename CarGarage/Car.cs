@@ -46,13 +46,27 @@ namespace CarGarage
 
         public void Accelerate()
         {
-            Speed += 10;
-            Fuel -= 10;
+            if (Fuel > 0)
+                {
+                Speed += 10;
+                Fuel -= 10;
+            }
+            else
+            {
+                Console.WriteLine("You're out of fuel!");
+            }
         }
 
         public void Brake()
         {
-            Speed -= 10;
+            if (Speed >= 10)
+            {
+                Speed -= 10;
+            }
+            else
+            {
+                Console.WriteLine("You are not moving.");
+            }
         }
 
         public void AddFuel()
